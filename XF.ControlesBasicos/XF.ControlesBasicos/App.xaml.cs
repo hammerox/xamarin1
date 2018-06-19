@@ -13,7 +13,7 @@ namespace XF.ControlesBasicos
 		{
 			InitializeComponent();
 
-			MainPage = new XF.ControlesBasicos.MainPage();
+			MainPage = new NavigationPage(new MainPage());
 		}
 
 		protected override void OnStart ()
