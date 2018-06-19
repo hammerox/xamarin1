@@ -11,17 +11,27 @@ namespace XF.ControlesBasicos
 {
 	public partial class ConfigPage : ContentPage
 	{
-		public ConfigPage ()
+        private MainPage parent;
+
+		public ConfigPage (MainPage parent)
 		{
 			InitializeComponent();
+            this.parent = parent;
+            emailSwitch.On = parent.isEmailAuthorized;
+            emailEntry.Text = parent.email;
         }
 
         private void SwitchCell_OnChanged(object sender, EventArgs e)
         {
-            var switchCell = sender as SwitchCell;
-            emailEntry.IsEnabled = switchCell.On;
+            emailEntry.IsEnabled = emailSwitch.On;
         }
 
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            this.parent.email = emailEntry.Text;
+            this.parent.isEmailAuthorized = emailSwitch.On;
+        }
 
     }
 }

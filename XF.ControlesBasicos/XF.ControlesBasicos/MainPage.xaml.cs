@@ -9,6 +9,9 @@ namespace XF.ControlesBasicos
 {
 	public partial class MainPage : ContentPage
 	{
+        public String email;
+        public Boolean isEmailAuthorized = true;
+
 		public MainPage()
 		{
 			InitializeComponent();
@@ -16,12 +19,24 @@ namespace XF.ControlesBasicos
 
         private void Send_Clicked(object sender, EventArgs e)
         {
-            (sender as Button).Text = "I was just clicked!";
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                DisplayAlert("Atenção", "Email não configurado", "OK");
+            }
+            else if (isEmailAuthorized == false)
+            {
+                DisplayAlert("Atenção", "Email não autorizado", "OK");
+            }
+            else
+            {
+                DisplayAlert("Sucesso", string.Format("Email enviado para {0}", email), "OK");
+            }
+                
         }
 
         private async void Config_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ConfigPage());
+            await Navigation.PushAsync(new ConfigPage(this));
         }
     }
 }

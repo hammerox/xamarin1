@@ -5,7 +5,8 @@
     <TableView>
         <TableView.Root>
             <TableSection Title="Privacidade">
-                <SwitchCell Text="Aceita receber e-mail?" 
+                <SwitchCell x:Name="emailSwitch" 
+                            Text="Aceita receber e-mail?" 
                             On="True"
                             OnChanged="SwitchCell_OnChanged"/>
                 <EntryCell x:Name="emailEntry" 
