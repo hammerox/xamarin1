@@ -13,5 +13,15 @@ namespace XF.ControlesBasicos
 		{
 			InitializeComponent();
 		}
-	}
+
+        private void Send_Clicked(object sender, EventArgs e)
+        {
+            (sender as Button).Text = "I was just clicked!";
+        }
+
+        private void Config_Clicked(object sender, EventArgs e)
+        {
+            (sender as Button).Text = "I was just clicked!";
+        }
+    }
 }

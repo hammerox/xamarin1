@@ -4,8 +4,17 @@
              xmlns:local="clr-namespace:XF.ControlesBasicos"
              x:Class="XF.ControlesBasicos.MainPage">
 
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center">
+            <Button Text="Enviar"
+                x:Name="Send"
+                Clicked="Send_Clicked" />
+            <Button Text="Configuração"
+                x:Name="Config"
+                Clicked="Config_Clicked"  />
+        </StackLayout>
+    </ContentPage.Content>
 
 </ContentPage>
